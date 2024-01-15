@@ -72,7 +72,7 @@ async def genStr(_, msg: Message):
     hash = await bot.ask(chat.id, HASH_TEXT)
     if await is_cancel(msg, hash.text):
         return
-    if not len(hash.text) >= 30:
+    if len(hash.text) < 30:
         await msg.reply("`API_HASH` is Invalid.\nPress /start to Start again.")
         return
     api_hash = hash.text
